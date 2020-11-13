@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{#    <title>国内疫情数据</title>#}
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/echarts.min.js"></script>
+    <script src="../static/js/china.js"></script>
+    <script src="../static/js/echarts-wordcloud.min.js"></script>
+    <link href="../static/css/main.css" rel="stylesheet"/>
+    <script src="../static/js/guizhou.js"></script>
+    <script src="../static/js/pingyin.js"></script>
+    <script src="../static/js/xinjiang.js"></script>
+    <script src="../static/js/beijing.js"></script>
+    <script src="../static/js/sichuan.js"></script>
+    <script src="../static/js/hubei.js"></script>
+    <script src="../static/js/chongqing.js"></script>
+    <script src="../static/js/shanghai.js"></script>
+    <script type="text/javascript" src="js/echarts-auto-tooltip.js"></script>
+    <script src="../static/js/echarts-tooltip-carousel.js"></script>
+ <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            #wrapper {
+                background: #fff;
+                opacity: 1;
+                position: fixed;
+                z-index: 10;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+            }
+
+            #loader {
+                background-image: url('../static/images/1.gif');
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", function() {
+                var wrapper = document.getElementById("wrapper");
+                document.body.removeChild(wrapper);
+            });
+        </script>
+</head>
+<body>
+<div id="box2">
+    <div id=ids></div>
+    <div id="iboot">
+        <img id="iboot_img1" src="../static/images/机器人.gif">
+        <img id="iboot_img2" src="../static/images/波浪收音new.gif">
+        <p style="color:white;position: absolute;top:56%;left: 63%;font-size: 2rem;font-weight: bolder">您可能还想问</p>
+        <p style="color: #bbbbbb; position: absolute; top: 38%;left: 66%;font-size: 1.5rem">实时监听...</p>
+        <p style="color: #b7955b;position: absolute;top: 70%; left: 55%;font-size: 3rem;font-weight: bolder">国内的疫情控制住了吗</p>
+        <p style="color: #b7955b;position: absolute;top: 78%; left: 54%;font-size: 3rem;font-weight: bolder">疫情导致的死亡人数多吗</p>
+        <p style="color: #bbbbbb; position:absolute;top: 86%;left:47%;font-size: 2rem;">提示：您可以直接问，也可以说“第1个”、“第二个”，或者“返回”</p>
+    </div>
+    <hr style="height:1px;color: #a7a7a7; position: absolute;top: 50%;left: 3%;width: 25%">
+</div>
+<div id="wrapper">
+    <div id="loader"></div>
+</div>
+{#<div id="title">国内疫情数据监控</div>#}
+{#<div id="title2"></div>#}
+        <div id="time"></div>
+        <div id="l1"></div>
+        <div id="l2"></div>
+        <div id="l3"></div>
+        <div id="r2">
+            {# <img id="r2_img1" src="../static/images/机器人.gif"> #}
+            <img id="r2_img2" src="../static/images/波浪收音new.gif">
+            <div id="iboot_speak">这是我们研发的可支持语音交互的疫情监控可视化大屏,您可以随时通过语音向我咨询有关于国内疫情的信息,期待您和我的互动哦。</div>
+            <p style="color: #a5a5a5;font-size: 1.5rem;position: absolute;top: 75%;left: 14%">实时监听中...</p>
+            <div id="user_speak">内蒙古自治区境外输入病例多少起</div>
+{#            <p style="color:white;position: absolute; font-size: 1.3rem;top: 55%;left: 63%">猜您想问</p>#}
+            <hr style="width: 58%;position: absolute;top: 75%;left: 38%;opacity: .9">
+            <table style="position: absolute;top: 83%;left: 38%;text-align: left;">
+                <tr>
+                    <td style="font-size: 1.3rem;color: white">猜您想问</td>
+                    <td style="font-size: 1.5rem;color:#b7955b ">北京境外输入确诊病例</td>
+                    <td style="font-size: 1.5rem;color:#b7955b ">内蒙古自治区境外输入病例多少起</td>
+                    <td style="font-size: 1.5rem;color:#b7955b ">贵州的疫情数据</td>
+                </tr>
+            </table>
+{#            <p style="position: absolute;top: 67%;left: 55%;color: #b7955b;font-size: 1.5rem;"></p>#}
+{#            <p style="position: absolute;top: 75%;left: 55%;color: #b7955b;font-size: 1.5rem;"></p>#}
+{#            <p style="position: absolute;top: 83%;left: 55%;color: #b7955b;font-size: 1.5rem;"></p>#}
+        </div>
+        <img src="../static/images/number.png" style="position: absolute;top: 15%;left: 36.7%">
+        <img src="../static/images/number.png" style="position: absolute;top: 15%;left: 43.3%">
+        <img src="../static/images/number.png" style="position: absolute;top: 15%;left: 49.9%">
+        <img src="../static/images/number.png" style="position: absolute;top: 15%;left: 56.5%">
+        <a href="#"  id="right_button"><div class="button2"></div></a>
+        <div style="position: absolute;top: 16.1%;left: 37.1%"><img src="../static/images/病毒.png"></div>
+        <div style="position: absolute;top: 16.1%;left: 43.9%"><img src="../static/images/健康.png"></div>
+        <div style="position: absolute;top: 16.1%;left: 50.4%"><img src="../static/images/死亡.png"></div>
+        <div style="position: absolute;top: 16.1%;left: 57.1%"><img src="../static/images/疑似案件.png"></div>
+        <div id="c1">
+            <div class="num"><h1 style="font-size: 2rem;color:#dc9909;position: absolute; top:24%;left: 39%"></h1></div>
+            <div class="num"><h1 style="font-size: 2rem;color: #359374 ;position: absolute; top: 24%;left: 45.6%"></h1></div>
+            <div class="num"><h1 style="font-size: 2rem;color: #cf3117;position: absolute; top: 24%;left: 52.3%"></h1></div>
+            <div class="num"><h1 style="font-size: 2rem;color:#e28545;position: absolute; top: 24%;left: 59%">3</h1></div>
+            <div class="txt"><p style=" font-size:1rem;color: #91d6e7; position: absolute;top: 20%;left: 39%">累计确诊数</p></div>
+            <div class="txt"><p style=" font-size:1rem;color: #91d6e7; position: absolute;top: 20%;left: 45.6%">累计治愈数</p></div>
+            <div class="txt"><p style=" font-size:1rem;color: #91d6e7; position: absolute;top: 20%;left: 52.3%">累计死亡数</p></div>
+            <div class="txt"><p style=" font-size:1rem;color: #91d6e7; position: absolute;top: 20%;left: 59%">疑似病例数</p></div>
+        </div>
+        <div id="c2"></div>
+        <div id="r1">我是右1</div>
+        <div id="r3"></div>
+{#<div class="box_title">#}
+{#    <p>国内疫情播报</p>#}
+{#    </div>#}
+{#<div id="lunbo"></div>#}
+
+{##}
+{#<div id="box">#}
+{#            <div id="con1">#}
+{#                <p>上海累计报告境外输入确诊病例399例。</p>#}
+{#                <p>云南省累计报告境外输入确诊病例15例。</p>#}
+{#                <p>内蒙古自治区累计报告境外输入确诊病例179例。</p>#}
+{#                <p>北京累计报告境外输入确诊病例174例。</p>#}
+{#                <p>吉林累计报告境外输入确诊病例19例。</p>#}
+{#                <p>四川累计报告62例境外输入病例。</p>#}
+{#                <p>天津市累计报告境外输入确诊病例67例。</p>#}
+{#                <p>宁夏累计确诊病例中包含3名境外输入型病例。</p>#}
+{#                <p>安徽省累计报告境外输入确诊病例1例。</p>#}
+{#                <p>山东累计报告境外输入确诊病例36例。</p>#}
+{#                <p>山西省累计报告境外输入确诊病例67例。</p>#}
+{#                <p>广东省累计报告境外输入病例277例。</p>#}
+{#                <p>广西累计报告境外输入确诊病例3例。</p>#}
+{#                <p>江苏累计报告境外输入确诊病例24例。</p>#}
+{#                <p>江西累计报告境外输入病例2例。</p>#}
+{#                <p>河南累计报告3例境外输入型病例。</p>#}
+{#                <p>浙江累计报告境外输入确诊病例51例。</p>#}
+{#                <p>海南省累计报告境外输入确诊病例2例。</p>#}
+{#                <p>湖南省累计报告境外输入确诊病例1例。</p>#}
+{#                <p>甘肃累计报告境外输入确诊病例75例。</p>#}
+{#                <p>福建省累计报告境外输入确诊病例69例。</p>#}
+{#                <p>贵州累计报告境外输入确诊病例1例。</p>#}
+{#                <p>辽宁累计报告境外输入病例33例</p>#}
+{#                <p>重庆市累计报告境外输入确诊病例7例。</p>#}
+{#            </div>#}
+{#</div>#}
+
+
+    <div id="dizuo"></div>
+        <script src="../static/js/ctrl.js"></script>
+        <script src="../static/js/controller.js"></script>
+        <script src="../static/js/ec_left2.js"></script>
+        <script src="../static/js/ec_center.js"></script>
+        <script src="../static/js/ec_left1.js"></script>
+        <script src="../static/js/ec_right1.js"></script>
+{#        <script src="../static/js/ec_left3(2).js"></script>#}
+        <script src="../static/js/ec_right3.js"></script>
+        <script src="../static/js/box.js"></script>
+        <script src="../static/js/ec_left_3.js"></script>
+</body>
+</html>

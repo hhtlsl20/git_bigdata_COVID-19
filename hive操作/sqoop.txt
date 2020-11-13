@@ -1,0 +1,24 @@
+china_c1:
+sqoop export --connect jdbc:mysql://47.115.148.142:3306/datafrom_hive --username root --password hht*LSL520 --table china_c1 --num-mappers 1 --export-dir /user/hive/warehouse/china_c1 --input-fields-terminated-by "\t"
+
+china_c2:
+sqoop export --connect jdbc:mysql://47.115.148.142:3306/datafrom_hive --username root --password hht*LSL520 --table china_c2 --num-mappers 1 --export-dir /user/hive/warehouse/china_c2 --input-fields-terminated-by ","
+
+china_l1:
+sqoop export --connect jdbc:mysql://47.115.148.142:3306/datafrom_hive --username root --password hht*LSL520 --table china_l1 --num-mappers 1 --export-dir /user/hive/warehouse/china_l1 --input-fields-terminated-by "\t"
+
+china_l2:
+sqoop export --connect jdbc:mysql://47.115.148.142:3306/datafrom_hive --username root --password hht*LSL520 --table china_l2 --num-mappers 1 --export-dir /user/hive/warehouse/china_l2 --input-fields-terminated-by "\t"
+
+china_l3:
+sqoop export --connect jdbc:mysql://47.115.148.142:3306/datafrom_hive --username root --password hht*LSL520 --table china_l3 --num-mappers 1 --export-dir /user/hive/warehouse/china_l3 --input-fields-terminated-by "\t"
+
+china_r2:
+sqoop export --connect jdbc:mysql://47.115.148.142:3306/datafrom_hive --username root --password hht*LSL520 --table china_r2 --num-mappers 1 --export-dir /user/hive/warehouse/china_r2 --input-fields-terminated-by "\t"
+
+
+
+
+jdbc:mysql://47.115.148.142:3306/datafrom_hive --username root --password hht*LSL520 --table china_l2 --num-mappers 1 --export-dir /user/hive/warehouse/china_l2 --input-fields-terminated-by "\t"
+
+

@@ -1,0 +1,41 @@
+china 表和china_c1表：
+create table china_c1[root@hadoop2 opt]# m int,confirm_add int,suspect int,suspect_add int,heal int,heal_add int,dead int ,dead_add int) row format delimited fields terminated by '\t';
+向c1表插入数据：
+insert overwrite table china_c1 select * from china order by ds desc limit 1;
+
+china_details建表语句：
+create table china_details(id int,update_time timestamp,province string,city string,confirm int,heal int,dead int,healrate float,deadrate float,tip string) row format delimited fields terminated by '\t';
+
+c2表建表语句:
+ create table china_c2(province string,sum_confirm int) row format delimited fields terminated by '\t';
+c2的数据插入语句：
+insert overwrite table china_c2 SELECT province ,SUM(confirm) from details group by province;
+
+L1建表语句：
+create table china_l1(ds timestamp,confirm int,heal int,dead int,suspect int) row format delimited fields terminated by '\t';
+L1数据插入语句:
+insert overwrite table china_l1 select ds,confirm,heal,dead,suspect from china;
+
+L2建表语句：
+create table china_l2(ds timestamp,confirm_add int,suspect_add int) row format delimited fields terminated by '\t';
+L2插入数据语句：
+insert overwrite table china_l2 select ds,confirm_add,suspect_add from china;
+
+L3建表语句：
+create table china_l3(confirm_add int,heal_add int,dead_add int) row format delimited fields terminated by '\t';
+L3数据插入语句：
+insert overwrite table china_l3 select sum(confirm_add),sum(heal_add),sum(dead_add) from china group by MONTH (ds);
+
+r1建表语句：
+create table china_r1(city string,confirm int);
+r1数据插入语句：
+
+
+r2建表语句：
+create table china_r2(content string
+r2数据插入语句：
+insert overwrite table china_r2 select content from hotsearch_hive limit 20;
+
+
+
+

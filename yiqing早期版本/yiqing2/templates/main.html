@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>国内疫情数据</title>
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/echarts.min.js"></script>
+    <script src="../static/js/china.js"></script>
+    <script src="../static/js/echarts-wordcloud.min.js"></script>
+    <link href="../static/css/main.css" rel="stylesheet"/>
+    <script src="../static/js/quanping.js"></script>
+ <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            #wrapper {
+                background: #fff;
+                opacity: 1;
+                position: fixed;
+                z-index: 10;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+            }
+
+            #loader {
+                background-image: url('../static/images/1.gif');
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", function() {
+                var wrapper = document.getElementById("wrapper");
+                document.body.removeChild(wrapper);
+            });
+        </script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="loader"></div>
+</div>
+<div id="title">国内疫情数据监控</div>
+<div id="title2"></div>
+        <div id="time"></div>
+        <div id="l1"></div>
+        <div id="l2"></div>
+        <div id="l3"></div>
+        <a href="#"  id="right_button"><div class="button2"></div></a>
+        <div id="c1">
+            <div class="num"><h1></h1></div>
+            <div class="num"><h1></h1></div>
+            <div class="num"><h1></h1></div>
+            <div class="num"><h1>3</h1></div>
+            <div class="txt"><h2>累计确诊数</h2></div>
+            <div class="txt"><h2>累计治愈数</h2></div>
+            <div class="txt"><h2>累计死亡数</h2></div>
+            <div class="txt"><h2>疑似病例数</h2></div>
+        </div>
+        <div id="c2"></div>
+        <div id="r1">我是右1</div>
+        <div id="r3"></div>
+<div class="box_title">
+    <p>国内疫情播报</p>
+</div>
+
+    <div id="box">
+      <ul id="con1">
+        <li>上海累计报告境外输入确诊病例399例。</li>
+        <li>云南省累计报告境外输入确诊病例15例。</li>
+        <li>内蒙古自治区累计报告境外输入确诊病例179例。</li>
+        <li>北京累计报告境外输入确诊病例174例。</li>
+        <li>吉林累计报告境外输入确诊病例19例。</li>
+        <li>四川累计报告62例境外输入病例。</li>
+        <li>天津市累计报告境外输入确诊病例67例。</li>
+        <li>宁夏累计确诊病例中包含3名境外输入型病例。</li>
+        <li>安徽省累计报告境外输入确诊病例1例。</li>
+        <li>山东累计报告境外输入确诊病例36例。</li>
+        <li>山西省累计报告境外输入确诊病例67例。</li>
+        <li>广东省累计报告境外输入病例277例。</li>
+        <li>广西累计报告境外输入确诊病例3例。</li>
+        <li>江苏累计报告境外输入确诊病例24例。</li>
+        <li>江西累计报告境外输入病例2例。</li>
+        <li>河南累计报告3例境外输入型病例。</li>
+        <li>浙江累计报告境外输入确诊病例51例。</li>
+        <li>海南省累计报告境外输入确诊病例2例。</li>
+        <li>湖南省累计报告境外输入确诊病例1例。</li>
+        <li>甘肃累计报告境外输入确诊病例75例。</li>
+        <li>福建省累计报告境外输入确诊病例69例。</li>
+        <li>贵州累计报告境外输入确诊病例1例。</li>
+        <li>辽宁累计报告境外输入病例33例</li>
+        <li>重庆市累计报告境外输入确诊病例7例。</li>
+      </ul>
+    </div>>
+        <script src="../static/js/ec_left2.js"></script>
+        <script src="../static/js/ec_center.js"></script>
+        <script src="../static/js/ec_left1.js"></script>
+        <script src="../static/js/ec_right1.js"></script>
+        <script src="../static/js/controller.js"></script>
+        <script src="../static/js/ctrl.js"></script>
+        <script src="../static/js/ec_left3.js"></script>
+        <script src="../static/js/ec_right3.js"></script>
+        <script src="../static/js/box.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+/* main.css */
+
+body{
+    margin: 0;
+    text-align: center;
+    background-image: url("../images/bg.jpg");
+    background-attachment: fixed;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#title{
+    position: absolute;
+    width: 100%;
+    height: 5%;
+    top: 0;
+    /* background: #666666; */
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "黑体";
+    font-weight: bold;
+    background-image: url("../images/head_bg.png");
+    background-size: 100% 100%;
+    background-position: left;
+}
+#title2{
+    position: absolute;
+    background-image: url("../images/0.gif");
+    background-size: cover;
+    background-position: center;
+    height: 5%;
+    width: 70%;
+    left: 15%;
+    top: 5%;
+}
+#time{
+    position: absolute;
+    /*width: 30%;*/
+    height: 10%;
+    top: 5%;
+    right: 2%;
+    color: white;
+    font-size: 20px;
+}
+#c1{
+    position: absolute;
+    width: 40%;
+    height: 30%;
+    top: 15%;
+    left: 30%;
+    color: white;
+    margin: 1px;
+    background: linear-gradient(left,#0c1440, #0f1e56);
+}
+#c2{
+    position: absolute;
+    width: 40%;
+    height: 60%;
+    top: 40%;
+    left: 30%;
+
+}
+#l1{
+    position: absolute;
+    width: 30%;
+    height: 200px;
+    top: 10%;
+    left: 0%;
+}
+.num{
+    float: left;
+    display: flex;
+    width: 25%;
+    align-items: center;
+    justify-content: center;
+    color: gold;
+    font-size: 10px;
+}
+.num2{
+
+}
+.txt{
+    width: 25%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "幼圆";
+}
+.txt h2{
+    margin: 0;
+}
+
+#l2{
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 40%;
+    left: 0%;;
+}
+#r1{
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 10%;
+    right: 0%;
+
+}
+#r3{
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 40%;
+    right: 0%;
+}
+#r2{
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 70%;
+    right: 0%;
+}
+#l3{
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 70%;
+    left: 0;
+}
+#right_button{
+    position: absolute;
+    right: 0;
+    margin: 0;
+    top: 50%;
+    z-index: 777;
+}
+.div1{
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    top: 100%;
+    background-color: #0d1d5e;
+}
+.div2{
+    position: relative;
+    height: 180px;
+    width: 24%;
+    background: linear-gradient(pink,skyblue);
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: left;
+    border-radius: 10px;
+}
+.div2:hover{
+    transform: scale(1.02);
+    box-shadow: 1px 2px 20px #666666;
+}
+.button2{
+    height: 69px;
+    width: 41px;
+    background-image: url("../images/icon-slides.png");
+    background-position:41px ;
+}
+.button2:hover{
+    background-position: 123px;
+}
+#box{
+    position: absolute;
+    width: 30%;
+    height: 25%;
+    top: 75%;
+    right: 0%;
+    overflow:hidden;
+    padding-bottom:20px;
+}
+#box li{
+  height:24px;
+  color: rgba(255,127,0,.7);
+}
+#box ul{
+  margin:0;
+  padding:0;
+}
+.box_title{
+    position: absolute;
+    color: rgb(254,67,101);
+    font-weight: bolder;
+    height: 5%;
+    width: 10%;
+    top: 70%;
+    right: 21%;
+    font-size: larger;
+}
+#quanping{
+  width: 40px;
+  height: 35px;
+  background-image: url("../images/logger.png");
+  background-size: cover;
+}

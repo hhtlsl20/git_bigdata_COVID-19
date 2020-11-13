@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+
+</head>
+
+<body>
+    <div style="width: 100%;height: 960px;background-color: rgb(50,50,50)"></div>
+    <div style="width: 100%;height: 50px">
+        <img src="../static/images/header.gif" alt="">
+    </div>
+    <div id="iboot" style="width: 30%;height: 500px; position: absolute;top: 20%;left: 60%;text-align: center">
+        <img src="../static/images/iboot.gif" style="position: absolute;top: 10%">
+        <p style="color:#01a9e8;position: absolute;top:25%;left: 46%;font-size: larger;font-weight: bolder">您可能还想问</p>
+        <p style="color: white;position: absolute;top: 35%; left: 42%">国内的疫情控制住了吗</p>
+        <p style="color: white;position: absolute;top: 40%; left: 42%">疫情导致的死亡人数多吗</p>
+        <p style="color: #01a9e8; position:absolute;top: 55%;left:20%">提示：您可以直接问，也可以说“第1个”、“第二个”，或者“返回”</p>
+    </div>
+    <!-- 为ECharts准备一个具备大小的Dom -->
+    <div id="main" style="width: 800px;height:600px; position: absolute;top: 20%;left: 30%"></div>
+    <!-- 引入 echarts.js -->
+    <script src="../static/js/echarts.min.js"></script>
+    <script src="../static/js/guizhou.js"></script>
+    <script>
+     var myChart = echarts.init(document.getElementById('main'));
+     var option = {
+      title: {
+       text : '贵州地图',
+       subtext : '各市区显示'
+      },
+      series: [
+        {
+        name: '数据名称',
+        type: 'map',
+        mapType: '贵州',
+        selectedMode : 'single',
+        itemStyle: {
+            normal: {
+                label: {
+                    show: true, formatter: function (params) {
+                        return params.name + "\n" + params.value
+                    }
+                }
+            },
+            emphasis: {label: {show: true}}
+        },
+            data:[
+             {name: '贵阳市',value: Math.round(Math.random()*1000)},
+             {name: '遵义市',value: Math.round(Math.random()*1000)},
+             {name: '六盘水市',value: Math.round(Math.random()*1000)},
+             {name: '毕节市',value: Math.round(Math.random()*1000)},
+             {name: '铜仁市',value: Math.round(Math.random()*1000)},
+             {name: '安顺市',value: Math.round(Math.random()*1000)},
+             {name: '黔西南布依族苗族自治州',value: Math.round(Math.random()*1000)},
+             {name: '黔东南苗族侗族自治州',value: Math.round(Math.random()*1000)},
+             {name: '黔南布依族苗族自治州',value: Math.round(Math.random()*1000)},
+            ]
+        }]
+      };
+     myChart.setOption(option);
+    </script>
+    </div>
+</body>
+</html>

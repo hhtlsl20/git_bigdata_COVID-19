@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>全球疫情数据可视化</title>
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            #wrapper {
+                background: #fff;
+                opacity: 1;
+                position: fixed;
+                z-index: 10;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+            }
+
+            #loader {
+                background-image: url('../static/images/3.gif');
+                background-size: cover;
+                width: 100%;
+                height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", function() {
+                var wrapper = document.getElementById("wrapper");
+                document.body.removeChild(wrapper);
+            });
+            //全屏
+
+          function toggleFullScreen() {
+	if (!document.fullscreenElement && // alternative standard method
+		!document.mozFullScreenElement && !document.webkitFullscreenElement) {// current working methods
+		if (document.documentElement.requestFullscreen) {
+			document.documentElement.requestFullscreen();
+		} else if (document.documentElement.mozRequestFullScreen) {
+			document.documentElement.mozRequestFullScreen();
+		} else if (document.documentElement.webkitRequestFullscreen) {
+			document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+		}
+	} else {
+		if (document.cancelFullScreen) {
+			document.cancelFullScreen();
+		} else if (document.mozCancelFullScreen) {
+			document.mozCancelFullScreen();
+		} else if (document.webkitCancelFullScreen) {
+			document.webkitCancelFullScreen();
+		}
+	}
+}
+
+        </script>
+  </head>
+  <body>
+  <div id="wrapper">
+            <div id="loader"></div>
+  </div>
+  <div id ='quanping' onclick='toggleFullScreen();'></div>
+    <!-- 头部的盒子 -->
+  <a href="#"  id="left_button"><div class="button1"></div></a>
+    <header>
+      <h1>全球新冠疫情数据可视化平台</h1>
+      <div id="title2"></div>
+      <div class="showTime">
+      </div>
+      <script>
+        var t = null;
+        t = setTimeout(time, 1000); //開始运行
+        function time() {
+          clearTimeout(t); //清除定时器
+          dt = new Date();
+          var y = dt.getFullYear();
+          var mt = dt.getMonth() + 1;
+          var day = dt.getDate();
+          var h = dt.getHours(); //获取时
+          var m = dt.getMinutes(); //获取分
+          var s = dt.getSeconds(); //获取秒
+          document.querySelector(".showTime").innerHTML =
+            "持续更新中......当前时间:"+
+            y +
+            "."+
+            mt+
+            "."+
+            day+
+            "-"+
+            h+
+            ":"+
+            m+
+            ":"+
+            s;
+          t = setTimeout(time, 1000); //设定定时器，循环运行
+        }
+      </script>
+      &
+    </header>
+
+    <!-- 页面主体部分 -->
+    <section class="mainbox">
+      <div class="column">
+        <div class="panel bar">
+          <h2>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOP5 &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="javascript:;"> 全球重点国家</a>
+            <a href="javacript:;"> 美国重点地区</a>
+          </h2>
+          <div class="chart" id='l1'></div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel line">
+          <h2>
+            每日新增病例走势 严防境外输入
+            <a href="javacript:;">国内</a>
+            <a href="javascript:;"> 国外</a>
+          </h2>
+          <div class="chart" id="l2">图表</div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel pie">
+          <h2>
+            国内外病例指数：
+            <a href="javacript:;">国内</a>
+            <a href="javascript:;"> 国外</a>
+          </h2>
+          <div class="chart" id="l3">图表</div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+      <div class="column">
+        <!-- no模块制作 -->
+        <div class="no">
+          <div class="no-hd">
+            <ul class="num">
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+            </ul>
+          </div>
+          <div class="no-bd">
+            <ul>
+              <li>国外确诊</li>
+              <li>累计治愈</li>
+              <li>累计死亡</li>
+              <li>现存确诊</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 地图模块 -->
+        <div class="map">
+          <!-- 记得改样式为  style="width:650px; height:650px;  -->
+          <iframe src="../static/html/map_globe_base.html" width=100% height=100% scrolling="no"  frameborder="no"></iframe>
+        </div>
+      </div>
+      <div class="column">
+        <div class="panel bar2">
+          <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全球板块确诊统计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 数据来源：<a href="https://news.qq.com//zt2020/page/feiyan.htm" title="进入腾讯网" target="top" style="text-decoration:blink;">腾讯网</a></h2>
+          <div class="chart" id="r1">图表</div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel line2">
+          <h2>
+            历史数据走势
+            <a href="javacript:;">国内</a>
+            <a href="javascript:;"> 国外</a>
+          </h2>
+          <div class="chart" id="r2">图表</div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel pie2">
+          <h2>复学复课百度热搜</h2>
+          <div class="chart" id="r3">图表</div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../static/js/flexible.js"></script>
+    <script src="../static/js/echarts.min.js"></script>
+    <script src="../static/js/echarts-gl.min.js"></script>
+    <script src="../static/js/echarts-gl.js"></script>
+    <!-- 先引入jquery -->
+    <script src="../static/js/jquery-1.11.1.min.js"></script>
+    <!-- 必须先引入js 这个文件 因为模块需要 -->
+    <script src="../static/js/center_c1.js"></script>
+    <script src="../static/js/left1.js"></script>
+    <script src="../static/js/left2.js"></script>
+    <script src="../static/js/left3.js"></script>
+    <script src="../static/js/right1.js"></script>
+    <script src="../static/js/right2.js"></script>
+    <script src="../static/js/right3.js"></script>
+    <script src="../static/js/ctrl.js"></script>
+  </body>
+</html>
