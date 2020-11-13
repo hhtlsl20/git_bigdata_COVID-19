@@ -16,13 +16,15 @@
 
 在线地址：http://47.107.32.131:5001/        （适配大屏）
 
-<video src="https://git171.oss-cn-shenzhen.aliyuncs.com/github/china.mp4" controls="controls" width="800" height="400" autoplay="autoplay">您的浏览器不支持播放该视频！</video>
+<iframe height=498 width=510 src="https://git171.oss-cn-shenzhen.aliyuncs.com/github/china.mp4" frameborder=0 allowfullscreen></iframe>
+
+
 
 （2）全球
 
 在线地址：http://47.107.32.131:5002/   （适配大屏）
 
-<video src="https://git171.oss-cn-shenzhen.aliyuncs.com/github/global.mp4" controls="controls" width="800" height="400" autoplay="autoplay">您的浏览器不支持播放该视频！</video>
+<iframe height=498 width=510 src="https://git171.oss-cn-shenzhen.aliyuncs.com/github/global.mp4" frameborder=0 allowfullscreen></iframe>
 
 
 
